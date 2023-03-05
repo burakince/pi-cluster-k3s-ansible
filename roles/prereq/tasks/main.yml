@@ -1,4 +1,12 @@
 ---
+- name: apt-get install linux-modules-extra-raspi on Ubuntu
+  apt:
+    name: linux-modules-extra-raspi
+    state: present
+    force_apt_get: yes
+  when: ansible_distribution in ['Ubuntu']
+  notify: reboot
+
 - name: Set SELinux to disabled state
   selinux:
     state: disabled

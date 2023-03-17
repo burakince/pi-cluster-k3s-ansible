@@ -74,3 +74,9 @@ scp ubuntu@192.168.0.200:~/.kube/config ~/.kube/config
 ```bash
 ansible all -i inventory/my-cluster/hosts.ini -a "shutdown now" -b --ask-become-pass
 ```
+
+## ulimit for the node
+
+```
+ulimit -a
+```

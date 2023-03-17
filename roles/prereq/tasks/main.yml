@@ -12,6 +12,20 @@
     state: disabled
   when: ansible_distribution in ['CentOS', 'Red Hat Enterprise Linux']
 
+- name: Increase max_user_instances limit
+  sysctl:
+    name: fs.inotify.max_user_instances
+    value: "1280"
+    state: present
+    reload: yes
+
+- name: Increase max_user_watches limit
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: "655360"
+    state: present
+    reload: yes
+
 - name: Enable IPv4 forwarding
   sysctl:
     name: net.ipv4.ip_forward

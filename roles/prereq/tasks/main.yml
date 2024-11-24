@@ -3,7 +3,7 @@
   ansible.builtin.apt:
     name: linux-modules-extra-raspi
     state: present
-    force_apt_get: yes
+    force_apt_get: true
   when: ansible_distribution in ['Ubuntu']
   notify: Reboot
 
@@ -17,28 +17,28 @@
     name: fs.inotify.max_user_instances
     value: "1280"
     state: present
-    reload: yes
+    reload: true
 
 - name: Increase max_user_watches limit
   ansible.posix.sysctl:
     name: fs.inotify.max_user_watches
     value: "655360"
     state: present
-    reload: yes
+    reload: true
 
 - name: Enable IPv4 forwarding
   ansible.posix.sysctl:
     name: net.ipv4.ip_forward
     value: "1"
     state: present
-    reload: yes
+    reload: true
 
 - name: Enable IPv6 forwarding
   ansible.posix.sysctl:
     name: net.ipv6.conf.all.forwarding
     value: "1"
     state: present
-    reload: yes
+    reload: true
   when: ansible_all_ipv6_addresses
 
 - name: Add br_netfilter to /etc/modules-load.d/
@@ -59,7 +59,7 @@
     name: "{{ item }}"
     value: "1"
     state: present
-    reload: yes
+    reload: true
   when: ansible_distribution in ['CentOS', 'Red Hat Enterprise Linux']
   loop:
     - net.bridge.bridge-nf-call-iptables

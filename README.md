@@ -29,6 +29,12 @@ Please install requirements first.
 ansible-galaxy install -r collections/requirements.yml
 ```
 
+Please list installed all collections with the following command.
+
+```bash
+ansible-galaxy collection list
+```
+
 Second, create a new directory based on the `sample` directory within the `inventory` directory:
 
 ```bash
@@ -111,4 +117,10 @@ Does not execute anything else.
 
 ```bash
 ansible all --list
+```
+
+## New Ansible Role
+
+```bash
+ansible-galaxy role init [-h] [-s API_SERVER] [--token API_KEY] [-c] [--timeout TIMEOUT] [-v] [-f] [--offline] [--init-path INIT_PATH] [--role-skeleton ROLE_SKELETON] [--type ROLE_TYPE] [-e EXTRA_VARS] role_name
 ```

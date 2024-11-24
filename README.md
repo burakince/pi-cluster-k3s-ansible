@@ -75,8 +75,40 @@ scp ubuntu@192.168.0.200:~/.kube/config ~/.kube/config
 ansible all -i inventory/my-cluster/hosts.ini -a "shutdown now" -b --ask-become-pass
 ```
 
+Because of [ansible config](./ansible.cfg) file setting, we can use the following command and it will act same as above.
+
+```bash
+ansible all -a "shutdown now" -b --ask-become-pass
+```
+
 ## ulimit for the node
 
-```
+```bash
 ulimit -a
+```
+
+## Checking date of all nodes
+
+```bash
+ansible all -a "date"
+```
+
+## Checking memory of all nodes
+
+```bash
+ansible all -a "free -h"
+```
+
+## Gathers facts about remote hosts
+
+```bash
+ansible all -m setup
+```
+
+## Outputs a list of matching hosts
+
+Does not execute anything else.
+
+```bash
+ansible all --list
 ```

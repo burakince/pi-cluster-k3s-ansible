@@ -23,7 +23,7 @@ Master and nodes must have passwordless SSH access
 
 ## Usage
 
-Please install requirements first.
+Please install collection requirements first.
 
 ```bash
 ansible-galaxy install -r collections/requirements.yml
@@ -33,6 +33,12 @@ Please list installed all collections with the following command.
 
 ```bash
 ansible-galaxy collection list
+```
+
+And than please install roles requirements with the following command.
+
+```bash
+ansible-galaxy install -r roles/requirements.yml
 ```
 
 Second, create a new directory based on the `sample` directory within the `inventory` directory:

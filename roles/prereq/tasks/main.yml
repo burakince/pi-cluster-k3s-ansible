@@ -26,6 +26,20 @@
     state: present
     reload: true
 
+- name: Define the maximum receive window size
+  ansible.posix.sysctl:
+    name: net.core.rmem_max
+    value: "7500000"
+    state: present
+    reload: true
+
+- name: Define the maximum send window size
+  ansible.posix.sysctl:
+    name: net.core.wmem_max
+    value: "7500000"
+    state: present
+    reload: true
+
 - name: Enable IPv4 forwarding
   ansible.posix.sysctl:
     name: net.ipv4.ip_forward
